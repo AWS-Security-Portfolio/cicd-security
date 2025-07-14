@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - pip install --upgrade pip
+  build:
+    commands:
+      - echo Running main app...
+      - python app.py
