@@ -35,7 +35,7 @@ A hands-on lab demonstrating secure CI/CD automation in AWS, including CodeBuild
 
 ## Diagram
 
-![Pipeline Diagram](A_flowchart_diagram_displays_an_AWS_CI/CD_pipeline.png)
+![Pipeline Diagram](diagram.png)
 
 ---
 
