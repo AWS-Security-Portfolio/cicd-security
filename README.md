@@ -196,7 +196,7 @@ A hands-on lab demonstrating secure CI/CD automation in AWS, including CodeBuild
 
 ## Troubleshooting & Common Errors
 
-- GitHub not connected:** Reconnect source credentials under "Account settings > Credentials".
+- GitHub not connected: Reconnect source credentials under "Account settings > Credentials".
 - AccessDenied for Secrets Manager: Attach correct permissions to CodeBuild role.
 - YAML_FILE_ERROR: Double-check your `buildspec.yml` syntax.
 - pip install errors: Ensure your `requirements.txt` matches your runtime.
