@@ -2,14 +2,15 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.11
     commands:
-      - pip install pytest
+      - pip install pytest pytest-cov
   build:
     commands:
-      - pytest --junitxml=results.xml
-
+      - pytest --cov=hello.py --cov-report=xml --cov-report=term
 reports:
   pytest_reports:
     files:
-      - results.xml
-    file-format: JUNITXML
+      - coverage.xml
+    file-format: COBERTURA-XML
