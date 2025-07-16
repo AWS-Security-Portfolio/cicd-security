@@ -2,13 +2,16 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.11
     commands:
-      - pip install pytest pytest-cov
+      - pip install -r requirements.txt
+      - pip install pylint
   build:
     commands:
-      - pytest --cov=.
-reports:
-  pytest_reports:
-    files:
-      - "**/test-*.xml"
-    file-format: JUNITXML
+      - ls
+      - echo "Hello World"
+      - pylint hello.py || true
+artifacts:
+  files:
+    - '**/*'
