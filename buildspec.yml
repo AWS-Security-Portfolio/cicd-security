@@ -1,8 +1,15 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - pip install pytest
   build:
     commands:
-      - echo "Hello World"
-      - echo "My secret value is $MY_SECRET"
+      - pytest --junitxml=results.xml
 
+reports:
+  pytest_reports:
+    files:
+      - results.xml
+    file-format: JUNITXML
