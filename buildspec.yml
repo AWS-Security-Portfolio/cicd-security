@@ -1,16 +1,7 @@
-version: 0.2
-
 phases:
   install:
-    runtime-versions:
-      python: 3.11
     commands:
       - pip install pytest pytest-cov
   build:
     commands:
-      - pytest --cov=hello.py --cov-report=xml --cov-report=term
-reports:
-  pytest_reports:
-    files:
-      - coverage.xml
-    file-format: COBERTURA-XML
+      - pytest --cov=.
