@@ -71,48 +71,43 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 
 ## Steps Performed
 
-1. IAM User and Role Setup
-   - Created an IAM user with programmatic and console access.
-   - Enabled MFA for the user to enhance account security.
-   - Created and attached custom IAM roles and policies for CodeBuild and CodePipeline.
-   - Verified least-privilege permissions and trusted entity relationships.
+1. IAM User, Roles & MFA Setup
+   - Created a dedicated IAM user for lab work, enabled MFA for extra security (Screenshot: iam-user-mfa-enabled.png)
+   - Defined and attached least-privilege IAM policies for CodeBuild and CodePipeline roles, including trusted entities. (Screenshots: iam-role-codebuild-permissions.png, iam-role-codepipeline-permissions.png, iam-role-codebuild-trusted-entities.png & iam-role-codepipeline-trusted-entities.png)
 
-2. GitHub Integration
-   - Created a new GitHub repository for the lab code.
-   - Connected AWS CodeBuild/CodePipeline to the GitHub repo using a secure token.
-   - Verified repository connection within the AWS console.
+2. GitHub Integration & Source Connection
+   - Linked GitHub repository with AWS CodePipeline for automated source pulls. (Screenshots: github-repo-initial-setup.png & codebuild-github-token-connected.png)
 
-3. CodeBuild Project with Secret Management
-   - Created a CodeBuild project to automate build and test processes.
-   - Stored sensitive values (e.g., API keys) in AWS Secrets Manager.
-   - Configured environment variables in CodeBuild to reference secrets securely.
-   - Verified secrets were masked in logs (never exposed in plaintext).
+3. S3 Bucket Creation & Encryption
+   - Created an S3 bucket for artifact storage and enabled default encryption (Screenshots: s3-bucket-created.png & s3-bucket-encryption.png)
 
-4. Pipeline Setup (Build, Test, Static Analysis, Reporting)
-   - Built a multi-stage pipeline using AWS CodePipeline with:
-   - Source: Pulls latest code from GitHub on every commit.
-   - Build: Compiles code, runs tests, and executes static analysis (e.g., pylint/CodeGuru).
-   - Report: Generates and publishes test and linting results.
-   - Configured automatic retries and notifications for failed stages.
-   - Validated end-to-end flow by triggering a full pipeline run.
+4. Secrets Management with AWS Secrets Manager
+   - Created a secret in AWS Secrets Manager to securely inject sensitive environment variables into builds (Screenshot: secretsmanager-create-secret.png)
 
-5. CloudWatch Logging
-   - Enabled logging for all pipeline stages in Amazon CloudWatch.
-   - Verified log group and log stream creation for build and test steps.
-   - Used logs for troubleshooting errors and validating secret masking.
+5. CodeBuild Project Setup & Environment Configuration
+   - Configured a CodeBuild project specifying environment variables, secret retrieval and compute resources (Screenshots: codebuild-project-details.png, codebuild-project-environment.png & codebuild-secrets-env-var.png)
 
-6. Security Checks
-   - Secret Masking: Confirmed that sensitive values were automatically redacted in logs.
-   - Least-Privilege IAM: Ensured CodeBuild/CodePipeline roles had only necessary permissions.
-   - S3 Encryption: Verified S3 artifact bucket encryption with SSE enabled.
-   - Static Analysis: Integrated tools (CodeGuru, pylint) to scan for code quality and security issues.
-   - Multi-Factor Authentication: Confirmed IAM user MFA setup for AWS console and CLI access.
+6. CI/CD Pipeline Creation and Source Stage
+   - Set up a CodePipeline pipeline with source (GitHub), build (CodeBuild), and test/reporting stages (Screenshot: codepipeline-source-setup.png)
+   - Verified pipeline triggers on new commits (Screenshot: codepipeline-run-success.png)
 
-7. Cleanup
-   - Deleted all CodeBuild and CodePipeline projects after the lab.
-   - Removed all created IAM roles, policies and test users.
-   - Deleted S3 buckets, CloudWatch log groups and Secrets Manager secrets used in the lab.
-   - Verified the AWS Billing Dashboard for any remaining active resources or charges.
+7. Build, Test & Static Analysis Integration
+   - Configured the buildspec to run Python tests with pytest and code linting with pylint or similar tools.
+   - Captured and published test and linting results to the console and CodeBuild reports (Screenshots: codebuild-build-success.png, codebuild-test-report-success.png, codebuild-test-report-summary.png & static-analysis-linting.png)
+
+8. Logging and Monitoring
+   - Verified all build logs are streamed to AWS CloudWatch for visibility and auditing (Screenshots: cloudwatch-log-groups-list.png & cloudwatch-codebuild-log-stream.png)
+
+9. Secret Masking & Security Validation
+   - Confirmed that sensitive secrets (e.g., from Secrets Manager) are masked and not exposed in logs (Screenshot: codebuild-secret-print-log.png)
+
+10. Automated Code Scanning (Bonus)
+   - Integrated AWS CodeGuru Reviewer for automated static code analysis and recommendations (Screenshot: codeguru-scan-results.png)
+
+11. Cleanup
+   - Deleted all created AWS resources (IAM roles, S3 bucket, CodeBuild projects, CodePipeline, Secrets Manager secrets) to avoid ongoing costs.
+
+
 
 ---
 
@@ -170,54 +165,6 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 | 21    | s3-bucket-encryption.png                   | S3 bucket encryption settings                                   |
 | 22    | secretsmanager-create-secret.png           | Secret creation in AWS Secrets Manager                          |
 | 23    | static-analysis-linting.png                | Static analysis/linting results (could also reference CodeGuru) |
-
-## Screenshot Explanations
-
-1. cloudwatch-codebuild-log-stream.png: Displays the CloudWatch log stream for a CodeBuild run, showing real-time build output and aiding in troubleshooting build steps.
-
-2. cloudwatch-log-groups-list.png: Lists all CloudWatch log groups, confirming logging is enabled for all relevant AWS services (e.g., CodeBuild, Lambda, and others).
-
-3. codebuild_test_report_success.png: Shows the summary of a successful test report in CodeBuild, proving tests ran and passed as part of the CI pipeline.
-
-4. codebuild-build-success.png: Captures a successful build status in CodeBuild, confirming the CI pipeline was set up and executed correctly.
-
-5. codebuild-github-token-connected.png: Verifies that CodeBuild is authenticated and connected to a GitHub repository, enabling automated source retrieval for builds.
-
-6. codebuild-project-details.png: Shows the main settings and metadata for the CodeBuild project (name, description, IAM role, etc.).
-
-7. codebuild-project-environment.png: Displays the configured build environment, including compute type, runtime image, and any environment variables.
-
-8. codebuild-secret-print-log.png: Demonstrates secure handling of secrets by showing a redacted secret printed in the build log (validating secret injection and masking).
-
-9. codebuild-secrets-env-var.png: Shows how environment variables were set up in CodeBuild to securely reference values from AWS Secrets Manager.
-
-10. codebuild-test-report-summary.png: Provides an overview of the CodeBuild test report, summarizing all tests run and their outcomes.
-
-11. codeguru-scan-results.png: Documents the results from an Amazon CodeGuru code scan, highlighting static analysis and security/linting feedback.
-
-12. codepipeline-run-success.png: Displays a successful execution of the full CodePipeline workflow, including all stages.
-
-13. codepipeline-source-setup.png: Shows the source stage configuration in CodePipeline, including source provider (e.g., GitHub), branch, and connection status.
-
-14. github-repo-initial-setup.png: Confirms the initial setup and structure of the GitHub repository that is integrated with the AWS pipeline.
-
-15. iam-role-codebuild-permissions.png: Shows the IAM policy/permissions assigned to the CodeBuild service role for secure resource access.
-
-16. iam-role-codebuild-trusted-entities.png: Demonstrates the trusted entities for the CodeBuild role, confirming only CodeBuild can assume this role.
-
-17. iam-role-codepipeline-permissions.png: Details the IAM policy/permissions for the CodePipeline role, showing the allowed actions and resource access.
-
-18. iam-role-codepipeline-trusted-entities.png: Displays the trusted entities for the CodePipeline IAM role, enforcing principle of least privilege.
-
-19. iam-user-mfa-enabled.png: Shows MFA enabled for the AWS IAM user, demonstrating strong authentication practices for admin access.
-
-20. s3-bucket-created.png: Proves an S3 bucket was created for artifact storage, an essential step for CodeBuild/CodePipeline artifact management.
-
-21. s3-bucket-encryption.png: Confirms encryption is enabled on the S3 artifact bucket, meeting compliance and security requirements.
-
-22. secretsmanager-create-secret.png: Demonstrates a secret successfully created in AWS Secrets Manager, which is then used in the build pipeline.
-
-23. static-analysis-linting.png: Captures results from static analysis/linting tools (e.g., CodeGuru or pylint), showing code quality and security checks in the pipeline.
 
 ---
 
