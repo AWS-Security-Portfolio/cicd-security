@@ -199,19 +199,19 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 ## References
 
 - AWS CodeBuild Documentation
-  https://docs.aws.amazon.com/codebuild/
+  (https://docs.aws.amazon.com/codebuild/)
 
 - AWS CI/CD Security Best Practices
-  https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/implement-secure-ci-cd-on-aws.html
+  (https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/implement-secure-ci-cd-on-aws.html)
 
 - pytest
-  https://docs.pytest.org/en/7.1.x/
+  (https://docs.pytest.org/en/7.1.x/)
 
 - pylint
-  https://pylint.pycqa.org/en/latest/
+  (https://pylint.pycqa.org/en/latest/)
 
 - AWS CodeGuru Reviewer
-  https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html
+  (https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/welcome.html)
 
 ---
 
