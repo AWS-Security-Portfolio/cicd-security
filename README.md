@@ -13,13 +13,17 @@ The project emphasizes security best practices such as least-privilege IAM, secr
 - [Diagram]
 - [Objectives]
 - [Steps Performed]
-  - [1. IAM setup]
-  - [2. GitHub integration]
-  - [3. CodeBuild project creation]
-  - [4. Pipeline setup]
-  - [5. Logging to CloudWatch]
-  - [6. Security checks]
-  - [7. Cleanup]
+  - [1. IAM User, Roles & MFA Setup]
+  - [2. GitHub Integration & Source Connection]
+  - [3. S3 Bucket Creation & Encryption]
+  - [4. Secrets Management with AWS Secrets Manager]
+  - [5. CodeBuild Project Setup & Environment Configuration]
+  - [6. CI/CD Pipeline Creation and Source Stage]
+  - [7. Build, Test & Static Analysis Integration]
+  - [8. Logging and Monitoring]
+  - [9. Secret Masking & Security Validation]
+  - [10. Automated Code Scanning]
+  - [11. Cleanup]
 - [CI/CD Pipeline Stages]
 - [Security Features Implemented]
 - [Screenshots & Deliverables]
@@ -101,7 +105,7 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 9. Secret Masking & Security Validation
    - Confirmed that sensitive secrets (e.g., from Secrets Manager) are masked and not exposed in logs (Screenshot: codebuild-secret-print-log.png)
 
-10. Automated Code Scanning (Bonus)
+10. Automated Code Scanning 
    - Integrated AWS CodeGuru Reviewer for automated static code analysis and recommendations (Screenshot: codeguru-scan-results.png)
 
 11. Cleanup
