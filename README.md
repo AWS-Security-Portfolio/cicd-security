@@ -8,6 +8,8 @@ The project emphasizes security best practices such as least-privilege IAM, secr
 ## Table of Contents
 
 - [Overview]
+- [Real-World Risk]
+- [What I Built]
 - [Diagram]
 - [Objectives]
 - [Steps Performed]
@@ -17,6 +19,7 @@ The project emphasizes security best practices such as least-privilege IAM, secr
   - [4. Pipeline setup]
   - [5. Logging to CloudWatch]
   - [6. Security checks]
+  - [7. Cleanup]
 - [CI/CD Pipeline Stages]
 - [Security Features Implemented]
 - [Screenshots & Deliverables]
@@ -30,6 +33,24 @@ The project emphasizes security best practices such as least-privilege IAM, secr
 ## Overview
 
 A hands-on lab demonstrating secure CI/CD automation in AWS, including CodeBuild, CodePipeline, static analysis, secret management, CloudWatch logging, and secure IAM practices.
+
+---
+
+## Real-World Risk
+
+Without secure CI/CD practices, organizations risk exposing sensitive credentials, deploying untested or vulnerable code, and granting excessive permissions to automated systems. Attackers can exploit misconfigured pipelines to gain unauthorized access, inject malicious code, or pivot through compromised build environments. Failing to mask secrets in logs, neglecting static analysis, or skipping IAM least-privilege can quickly turn automation into an enterprise-wide vulnerability.
+
+---
+
+## What I Built
+
+- Integrated GitHub with AWS CodePipeline and CodeBuild for fully automated builds.
+- Configured IAM roles using least-privilege and enabled MFA for administrative access.
+- Secured pipeline secrets using AWS Secrets Manager with environment variable injection and log masking.
+- Automated test execution and generated coverage reports using pytest.
+- Implemented static code analysis using Pylint and AWS CodeGuru Reviewer.
+- Centralized build logs in Amazon CloudWatch for troubleshooting and audit trails.
+- Encrypted all artifacts at rest in Amazon S3.
 
 ---
 
@@ -86,6 +107,12 @@ A hands-on lab demonstrating secure CI/CD automation in AWS, including CodeBuild
    - S3 Encryption: Verified S3 artifact bucket encryption with SSE enabled.
    - Static Analysis: Integrated tools (CodeGuru, pylint) to scan for code quality and security issues.
    - Multi-Factor Authentication: Confirmed IAM user MFA setup for AWS console and CLI access.
+
+7. Cleanup
+   - Deleted all CodeBuild and CodePipeline projects after the lab.
+   - Removed all created IAM roles, policies and test users.
+   - Deleted S3 buckets, CloudWatch log groups and Secrets Manager secrets used in the lab.
+   - Verified the AWS Billing Dashboard for any remaining active resources or charges.
 
 ---
 
