@@ -140,7 +140,7 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 
 ## Screenshots & Deliverables
 
-*All screenshots are included in the screenshots/ folder.
+*All screenshots are included in the screenshots/ folder.*
 
 | Order | File Name                                  | What it Shows                                                   |
 | ----- | -------------------------------------------|---------------------------------------------------------------- |
