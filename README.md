@@ -7,12 +7,12 @@ The project emphasizes security best practices such as least-privilege IAM, secr
 
 ## Table of Contents
 
-- [Overview]
-- [Real-World Risk]
-- [What I Built]
-- [Diagram]
-- [Objectives]
-- [Steps Performed]
+- [Overview](#overview)
+- [Real-World Risk](#real-world-risk)
+- [What I Built](#what-i-built)
+- [Diagram](#diagram)
+- [Objectives](#objectives)
+- [Steps Performed](#steps-performed)
   - [1. IAM User, Roles & MFA Setup]
   - [2. GitHub Integration & Source Connection]
   - [3. S3 Bucket Creation & Encryption]
@@ -24,13 +24,13 @@ The project emphasizes security best practices such as least-privilege IAM, secr
   - [9. Secret Masking & Security Validation]
   - [10. Automated Code Scanning]
   - [11. Cleanup]
-- [CI/CD Pipeline Stages]
-- [Security Features Implemented]
-- [Screenshots & Deliverables]
-- [Troubleshooting & Common Errors]
-- [Lessons Learned]
-- [Future Improvements]
-- [References]
+- [CI/CD Pipeline Stages](#cicd-pipeline-stages)
+- [Security Features Implemented](#security-features-implemented)
+- [Screenshots & Deliverables](#screenshots--deliverables)
+- [Troubleshooting & Common Errors](#troubleshooting--common-errors)
+- [Lessons Learned](#lessons-learned)
+- [Future Improvements](#future-improvements)
+- [References](#references)
 
 ---
 
