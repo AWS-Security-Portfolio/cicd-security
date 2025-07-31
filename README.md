@@ -1,7 +1,7 @@
 # AWS Security CI/CD Lab
 
-Implemented a secure AWS CI/CD pipeline using CodePipeline, CodeBuild, and GitHub integration.
-The project emphasizes security best practices such as least-privilege IAM, secrets management, MFA, CloudWatch logging, static analysis, and automated testing to ensure safe and reliable software delivery.
+Implemented a secure AWS CI/CD pipeline using CodePipeline, CodeBuild and GitHub integration.
+The project emphasizes security best practices such as least-privilege IAM, secrets management, MFA, CloudWatch logging, static analysis and automated testing to ensure safe and reliable software delivery.
 
 ---
 
@@ -31,6 +31,7 @@ The project emphasizes security best practices such as least-privilege IAM, secr
 - [Lessons Learned](#lessons-learned)
 - [Future Improvements](#future-improvements)
 - [References](#references)
+- [Contact](#contact)
 
 ---
 
@@ -206,7 +207,8 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 
 ---
 
-Sebastian Silva C. – July 2025 – Berlin, Germany.
-- [LinkedIn](https://www.linkedin.com/in/sebastiansilc/)
-- [GitHub](https://github.com/SebaSilC)
+## Contact
+
+Sebastian Silva C. – July 2025 – Berlin, Germany  
+[LinkedIn](https://www.linkedin.com/in/sebastiansilc) | [GitHub](https://github.com/SebaSilC) | [sebastian@playbookvisualarts.com](mailto:sebastian@playbookvisualarts.com)
 
