@@ -141,7 +141,7 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 
 ## Screenshots & Deliverables
 
-*All screenshots are included in the screenshots/ folder.*
+*All screenshots are included in the `screenshots/` folder.*
 
 | Order | File Name                                  | What it Shows                                                   |
 | ----- | -------------------------------------------|---------------------------------------------------------------- |
@@ -211,5 +211,6 @@ Without secure CI/CD practices, organizations risk exposing sensitive credential
 
 Sebastian Silva C. – July 2025 – Berlin, Germany  
 [LinkedIn](https://www.linkedin.com/in/sebastiansilc) | [GitHub](https://github.com/SebaSilC) | [sebastian@playbookvisualarts.com](mailto:sebastian@playbookvisualarts.com)
+
 
 
